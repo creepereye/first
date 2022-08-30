@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/Test.js') }}"></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class ="container">
+        <span>C</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+        <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h3 class="animate-charcter"> 실시간 웹채팅 서비스</h3>
+              </div>
+            </div>
+          </div>
+    </header>
+    <mian>
+        <article class="container">
+            <div>
+                <a href="https://pokemonkorea.co.kr/">
+                    <img class="main" src="{{ url_for('static', filename='img/피카츄_before.jpg') }}">
+                </a>
+
+
+
+
+
+                
+                <h1 class="neonText">지금 바로 로그인하세요!</h1>
+                
+                
+                
+              <div id="log_in_bar">
+                
+                <div class="ID">
+                    
+                    <div class="searchBar">
+                      <input class ="input_1" id="searchQueryInput" type="text" name="searchQueryInput" onkeyup="Init_Text_1(event)" placeholder="ID" />
+                      <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit" onclick="Enter_1(event)" value="검색">
+                        
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <form action="/chat" method="POST" class="log_in">
+                  <div class="log_in">
+                    <button id ='btn' type="submit" >
+  
+                  </div>
+                  </form>
+
+
+                  <div class="PW">
+                    <div class="searchBar">
+                      <input class ="input_2" id="searchQueryInput" type="password" name="searchQueryInput" onkeyup="Init_Text_2(event)" placeholder="PASSWORD" />
+                      <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit" onclick="Enter_2(event)" value="검색">
+                        
+                      </button>
+                    </div>
+                  </div>
+                
+                
+                  
+
+              </div>
+
+
+              <a id ="help" href="https://www.youtube.com/">
+                <h3 style="display: inline;" > 회원가입 </h3>
+                <h3 style="display: inline;"> 아이디 찾기 </h3>
+                <h3 style="display: inline;"> 비밀번호 찾기   </h3>
+              </a>
+
+
+
+
+
+                
+            </div>
+            
+            
+        </article>
+
+
+
+        
+    </main>
+    <footer>
+        
+        <iframe width="110" height="64" src="https://www.youtube.com/embed/2pUC0ja2Hcs?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        
+    
+    </footer>
+    
+</body>
+</html>

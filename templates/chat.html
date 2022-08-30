@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+      <meta charset="UTF-8">
+      <title>chat room</title>
+
+    <script src="http://192.168.35.110:5000/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <script type='text/javascript'>
+      $(document).ready(function(){
+      console.log('http://' + document.domain + ':' + location.port)
+      var socket = io.connect('http://' + document.domain + ':' + location.port)       
+      socket.on('connect', function(){                 
+      var connect_string = 'new_connect'                 
+      socket.send(connect_string)         
+      })         
+      socket.on('message', function(msg){
+      if(msg.type === 'normal'){
+        let tagArea = document.getElementById('message')
+        let new_hTag = document.createElement('h1');
+        new_hTag.innerHTML = msg.message;
+        tagArea.appendChild(new_hTag);
+        $('#messages').append('<h1> '+msg.message+'</h1>')
+        console.log(msg.message)
+        }
+      else{
+        let tagArea = document.getElementById('message')
+        let new_hTag = document.createElement('h1');
+        new_hTag.innerHTML = msg.message;
+        tagArea.appendChild(new_hTag);
+        $('#messages').append('<li>' + msg.message + '</li>')
+        console.log(msg.message)
+        }
+      console.log('Received Message : '+msg.type);         
+      })        
+      $('#sendbutton').on('click', function(){                 
+      socket.send($('#myMessage').val())                 
+      $('#myMessage').val('')   
+    }) 
+  })
+  </script>
+  <article>
+   <h2 id="message" onclick="scroll(event)"></h2>
+  </article>
+</body>
+<footer>
+  <input type="text" id="myMessage">
+   <button id="sendbutton">Send</button>
+</footer>
+</html>
